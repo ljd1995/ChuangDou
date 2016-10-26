@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f7f5f7">
+
+    <include
+        android:id="@+id/topbook_pager_loading"
+        layout="@layout/pager_loading"/>
+
+    <include
+        android:id="@+id/topbook_pager_error"
+        layout="@layout/pager_error"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/ll_topbook_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/book_list_item1"
+                layout="@layout/item_book_list"/>
+
+            <include
+                android:id="@+id/book_list_item2"
+                layout="@layout/item_book_list"/>
+
+            <include
+                android:id="@+id/book_list_item3"
+                layout="@layout/item_book_list"/>
+
+            <include
+                android:id="@+id/book_list_item4"
+                layout="@layout/item_book_list"/>
+
+            <include
+                android:id="@+id/book_list_item5"
+                layout="@layout/item_book_list"/>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/include_title_bar"
+        layout="@layout/include_title_bar"/>
+
+    <include
+        android:id="@+id/inTheaters_pager_loading"
+        layout="@layout/pager_loading"/>
+
+    <include
+        android:id="@+id/inTheaters_pager_error"
+        layout="@layout/pager_error"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/inTheaters_recycleview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v7.widget.RecyclerView>
+</LinearLayout>

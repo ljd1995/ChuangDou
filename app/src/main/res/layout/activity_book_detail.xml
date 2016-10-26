@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="cn.luojiandong.douban.activity.BookDetailActivity">
+
+    <include
+        android:id="@+id/book_title_bar"
+        layout="@layout/include_title_bar"/>
+
+    <include
+        android:id="@+id/book_pager_loading"
+        layout="@layout/pager_loading"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/book_title_bar"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:background="#f2efef"
+            android:id="@+id/ll_book_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/detail_topimage"
+                layout="@layout/include_detail_topimage"/>
+
+            <include
+                android:id="@+id/detail_type_rating"
+                layout="@layout/include_detail_type_rating"/>
+            <include
+                android:id="@+id/detail_wish_more"
+                layout="@layout/include_detail_wish_more"/>
+
+            <include
+                android:id="@+id/detail_synopsis"
+                layout="@layout/include_detail_synopsis"/>
+            <include
+                android:id="@+id/detail_author_synopsis"
+                layout="@layout/include_detail_synopsis"/>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

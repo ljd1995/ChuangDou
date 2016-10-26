@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp">
+
+    <ImageView
+        android:id="@+id/inTheaters_image"
+        android:layout_width="95dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="8dp"
+        android:scaleType="centerCrop"/>
+
+    <TextView
+        android:layout_marginTop="3dp"
+        android:id="@+id/inTheaters_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/inTheaters_image"
+        android:layout_alignRight="@id/inTheaters_image"
+        android:layout_below="@id/inTheaters_image"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="@android:color/black"
+        android:textSize="13sp"/>
+
+    <TextView
+        android:layout_marginTop="3dp"
+        android:id="@+id/inTheaters_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/inTheaters_title"
+        android:layout_below="@id/inTheaters_title"
+        android:textColor="@color/colorPrimary"
+        android:textSize="11sp"/>
+</RelativeLayout>
