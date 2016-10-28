@@ -11,18 +11,18 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.luojiandong.douban.R;
-import cn.luojiandong.douban.adapter.AllTypeTabPagerAdapter;
+import cn.luojiandong.douban.adapter.MovieTabPagerAdapter;
 import cn.luojiandong.douban.utils.UIUtils;
 
 /**
  * 项目名：Douban
  * 包名：cn.luojiandong.douban.base
- * 文件名: BaseTopTabFragment
+ * 文件名: MovieTabPagerFragment
  * 创建者: JackLuo
  * 创建时间: 2016-10-23 10:57
  * 描述：顶部三个TabFragment的基类
  */
-public abstract class BaseTopTabFragment extends BaseFragment {
+public abstract class MovieTabPagerFragment extends BaseFragment {
     @BindView(R.id.base_top_tab)
     TabLayout mBaseTopTabLayout;
     @BindView(R.id.base_top_tab_viewpager)
@@ -43,14 +43,13 @@ public abstract class BaseTopTabFragment extends BaseFragment {
         for (String s:strings) {
             mTabTitles.add(s);
         }
-        AllTypeTabPagerAdapter adapter = new AllTypeTabPagerAdapter(getActivity().getSupportFragmentManager(), mTabTitles,getTabType());
+        MovieTabPagerAdapter adapter = new MovieTabPagerAdapter(getActivity().getSupportFragmentManager(), mTabTitles);
         mBaseTabViewpager.setOffscreenPageLimit(2);
         mBaseTabViewpager.setAdapter(adapter);
         mBaseTopTabLayout.setTabMode(TabLayout.MODE_FIXED);
         mBaseTopTabLayout.setupWithViewPager(mBaseTabViewpager);
     }
 
-    protected abstract int getTabType();
 
     public abstract int getTabTitle();
 }

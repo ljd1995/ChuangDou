@@ -151,23 +151,19 @@ public class MainActivity extends AppCompatActivity
 
         switch (id) {
             case R.id.nav_menu_home:
-
-                break;
-            case R.id.nav_menu_recommend:
-
-                break;
-            case R.id.nav_menu_theme:
-
+                item.isChecked();
                 break;
             case R.id.nav_menu_feedback:
-
+                Intent feedBackIntent = new Intent(this, FeedBackActivity.class);
+                startActivity(feedBackIntent);
                 break;
             case R.id.nav_menu_setting:
-
+                Intent settingIntent = new Intent(this, SettingActivity.class);
+                startActivity(settingIntent);
                 break;
             case R.id.nav_menu_about:
-                Intent intent = new Intent(this,AboutActivity.class);
-                startActivity(intent);
+                Intent aboutIntent = new Intent(this, AboutActivity.class);
+                startActivity(aboutIntent);
                 break;
             default:
                 break;

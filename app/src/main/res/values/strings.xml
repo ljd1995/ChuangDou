@@ -10,17 +10,34 @@
     <string name="movie_director">导演</string>
     <string name="clickLoadMore">查看更多信息</string>
 
-    <string name="about_author">作者：罗建东</string>
-    <string name="about_project">这是我闲暇时间做的一个豆瓣第三方客户端</string>
-    <string name="about_addr">罗建东</string>
-    <string name="about_info">豆瓣第三方客户端</string>
+    <string name="about_author">  本人罗建东，毕业于深圳职业技术学院，这个App是基于豆瓣开放Api V2做的豆瓣第三方客户端，使用Retrofit完成网络请求，符合MaterialDesign设计风格!</string>
+    <string name="about_author_line2">  学习是个痛苦的过程，但快乐犹在！当你解决bug,做出一个自己想要的效果时，可能你会暴跳，可能会欢喜一阵子，然后又默默的敲代码，希望看到这份代码的人能给予建议、意见与反馈！</string>
+    <string name="about_project">深职计算机创新工作室：http://www.cisfamily.cn</string>
+    <string name="about_info_retrofit"> Retrofit: github.com/square/retrofit</string>
+    <string name="about_info_glide"> Glide: github.com/bumptech/glide</string>
+    <string name="about_info_epandableTextView"> ExpandableTextView: github.com/Manabu-GT/ExpandableTextView</string>
+    <string name="about_info_douban"> 豆瓣Api V2: https://developers.douban.com/wiki/?title=api_v2</string>
+    <string name="about_opensource">感谢开源的世界和开放的资源</string>
+    <string name="about_worth">一切都很值得</string>
+    <string name="about_know">很高兴认识你</string>
+    <string name="about_info_circleImageView"> CircleImageView: github.com/hdodenhof/CircleImageView</string>
+    <string name="cleanCache">手动清理缓存</string>
+    <string name="app_feedback">任何一个App都难免会出现各种各样的bug,如果你对这个App在用户体验或其他方面有看法，欢迎你对我提建议；如果在App方面有什么要咨询学习的，欢迎你对我咨询，个人非常乐意为你解答；如果该App某些方面侵犯了你的权益，请跟我投诉。我会及时处理和更新！谢谢你们！</string>
+    <string name="et_phone_or_email">手机或邮箱都可以喔</string>
+    <string name="tv_call">联系方式</string>
+    <string name="et_feedback">输入您的反馈详情</string>
+    <string name="rb_complain">要投诉</string>
+    <string name="rb_consult">想咨询</string>
+    <string name="rb_advice">提建议</string>
+    <string name="feed_title_bar_title">意见反馈</string>
+    <string name="about_info_bmob"> bmob后端云: http://www.bmob.cn/</string>
 
     <string-array name="homeTabTitle">
         <item>Top250</item>
         <item>热映榜</item>
     </string-array>
     <string-array name="bookTabTitle">
-        <item>诺贝尔奖</item>
+        <item>诺贝尔奖</item>e
         <item>畅销</item>
         <item>流行</item>
         <item>文化</item>
