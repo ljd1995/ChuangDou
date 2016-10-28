@@ -11,6 +11,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Unbinder;
 import cn.luojiandong.douban.R;
 import cn.luojiandong.douban.controller.BookClassicsController;
 import cn.luojiandong.douban.controller.BookCultureController;
@@ -40,12 +41,13 @@ public class BookMoreActivity extends Activity {
     TextView mBookTypeTitle;
     @BindView(R.id.title_bar_share)
     ImageButton mShare;
+    private Unbinder mUnbinder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_intheater);
-        ButterKnife.bind(this);
+        mUnbinder = ButterKnife.bind(this);
         mRecyclerView.setVisibility(View.GONE);
         mPager_error.setVisibility(View.GONE);
         mShare.setVisibility(View.GONE);
@@ -93,4 +95,9 @@ public class BookMoreActivity extends Activity {
         finish();
     }
 
+    @Override
+    protected void onDestroy() {
+        mUnbinder.unbind();
+        super.onDestroy();
+    }
 }

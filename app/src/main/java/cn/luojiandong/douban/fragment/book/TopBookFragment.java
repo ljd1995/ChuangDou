@@ -9,6 +9,7 @@ import android.widget.RelativeLayout;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import cn.luojiandong.douban.R;
 import cn.luojiandong.douban.activity.BookMoreActivity;
 import cn.luojiandong.douban.base.BaseFragment;
@@ -44,11 +45,12 @@ public class TopBookFragment extends BaseFragment {
     private RelativeLayout mPopularMoreContainer;
     private RelativeLayout mCultureMoreContainer;
     private RelativeLayout mLifeMoreContainer;
+    private Unbinder mUnbinder;
 
     @Override
     public View initView() {
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_top_book, null, false);
-        ButterKnife.bind(this, view);
+        mUnbinder = ButterKnife.bind(this, view);
         mTopbookContainer.setVisibility(View.GONE);
         mPagerError.setVisibility(View.GONE);
         mClassicsMoreContainer = (RelativeLayout) bookListClassics.findViewById(R.id.book_more_container);
@@ -116,4 +118,9 @@ public class TopBookFragment extends BaseFragment {
         lifeController.requestAndSetData();
     }
 
+    @Override
+    public void onDestroy() {
+        mUnbinder.unbind();
+        super.onDestroy();
+    }
 }

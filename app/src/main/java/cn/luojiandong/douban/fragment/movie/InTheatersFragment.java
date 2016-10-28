@@ -11,6 +11,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import cn.luojiandong.douban.R;
 import cn.luojiandong.douban.activity.MovieDetailActivity;
 import cn.luojiandong.douban.adapter.InTheaterAdapter;
@@ -37,10 +38,12 @@ public class InTheatersFragment extends BaseFragment implements RetrofitTask.Res
     View mTitleBar;
     private GridLayoutManager mLayoutManager;
     private List<SubjectsInfo> mDatas;
+    private Unbinder mUnbinder;
+
     @Override
     public View initView() {
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_intheater, null, false);
-        ButterKnife.bind(this, view);
+        mUnbinder = ButterKnife.bind(this, view);
         mInTheatersRecycleview.setVisibility(View.GONE);
         mPager_error.setVisibility(View.GONE);
         mTitleBar.setVisibility(View.GONE);
@@ -106,5 +109,11 @@ public class InTheatersFragment extends BaseFragment implements RetrofitTask.Res
     @Override
     public void onLongClick(int position) {
 
+    }
+
+    @Override
+    public void onDestroy() {
+        mUnbinder.unbind();
+        super.onDestroy();
     }
 }

@@ -10,6 +10,7 @@ import java.util.TimerTask;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import cn.luojiandong.douban.R;
 import cn.luojiandong.douban.constants.MyConstants;
 import cn.luojiandong.douban.utils.GlideUtils;
@@ -18,12 +19,13 @@ public class SplashActivity extends Activity {
 
     @BindView(R.id.iv_splash)
     ImageView mSplashImage;
+    private Unbinder mUnbinder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        ButterKnife.bind(this);
+        mUnbinder = ButterKnife.bind(this);
         initData();
     }
 
@@ -39,5 +41,11 @@ public class SplashActivity extends Activity {
             }
         };
         timer.schedule(timerTask, 1500);
+    }
+
+    @Override
+    protected void onDestroy() {
+        mUnbinder.unbind();
+        super.onDestroy();
     }
 }

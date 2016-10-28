@@ -11,6 +11,7 @@ import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Unbinder;
 import cn.luojiandong.douban.R;
 import cn.luojiandong.douban.utils.GlideUtils;
 
@@ -22,12 +23,13 @@ public class SettingActivity extends Activity {
     TextView mSettingTitleBarTitle;
     @BindView(R.id.rl_cache_container)
     RelativeLayout mRlCacheContainer;
+    private Unbinder mUnbinder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
-        ButterKnife.bind(this);
+        mUnbinder = ButterKnife.bind(this);
         mSettingTitleBarTitle.setText("设置");
         initData();
     }
@@ -65,5 +67,11 @@ public class SettingActivity extends Activity {
             }
         }).create().show();
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        mUnbinder.unbind();
+        super.onDestroy();
     }
 }

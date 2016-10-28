@@ -27,6 +27,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Unbinder;
 import cn.luojiandong.douban.R;
 import cn.luojiandong.douban.bean.MovieDetailBean;
 import cn.luojiandong.douban.http.ApiFactory;
@@ -98,12 +99,13 @@ public class MovieDetailActivity extends Activity implements RetrofitTask.Respon
     private TextView mMovieDetail;
     private List<TextView> mTextViewList;
     private List<ImageView> mImageViewList;
+    private Unbinder mUnbinder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_detail);
-        ButterKnife.bind(this);
+        mUnbinder = ButterKnife.bind(this);
         mLinearLayout.setVisibility(View.GONE);
         initView();
         initData();
@@ -285,4 +287,9 @@ public class MovieDetailActivity extends Activity implements RetrofitTask.Respon
         });
     }
 
+    @Override
+    protected void onDestroy() {
+        mUnbinder.unbind();
+        super.onDestroy();
+    }
 }

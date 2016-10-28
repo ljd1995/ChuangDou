@@ -10,6 +10,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import cn.luojiandong.douban.R;
 import cn.luojiandong.douban.adapter.MusicTabPagerAdapter;
 import cn.luojiandong.douban.base.BaseFragment;
@@ -25,11 +26,12 @@ public class TopMusicFragment extends BaseFragment {
     @BindView(R.id.top_tab_music_viewpager)
     ViewPager mTopTabMusicViewpager;
     private List<String> mTabTitles;
+    private Unbinder mUnbinder;
 
     @Override
     public View initView() {
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_top_music, null, false);
-        ButterKnife.bind(this, view);
+        mUnbinder = ButterKnife.bind(this, view);
         return view;
     }
 
@@ -45,5 +47,11 @@ public class TopMusicFragment extends BaseFragment {
         mTopTabMusicViewpager.setAdapter(adapter);
         mTopMusicTab.setTabMode(TabLayout.MODE_FIXED);
         mTopMusicTab.setupWithViewPager(mTopTabMusicViewpager);
+    }
+
+    @Override
+    public void onDestroy() {
+        mUnbinder.unbind();
+        super.onDestroy();
     }
 }

@@ -7,6 +7,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Unbinder;
 import cn.luojiandong.douban.R;
 import cn.luojiandong.douban.utils.UIUtils;
 
@@ -16,12 +17,13 @@ public class AboutActivity extends Activity {
     TextView mAboutTitleBarTitle;
     @BindView(R.id.tv_author)
     TextView mTvAuthor;
+    private Unbinder mUnbinder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
-        ButterKnife.bind(this);
+        mUnbinder = ButterKnife.bind(this);
         mAboutTitleBarTitle.setText("关于");
         mTvAuthor.setText(UIUtils.getString(R.string.about_author)+"\n"+UIUtils.getString(R.string.about_author_line2));
     }
@@ -30,6 +32,10 @@ public class AboutActivity extends Activity {
     public void onClick() {
         finish();
     }
-
+    @Override
+    protected void onDestroy() {
+        mUnbinder.unbind();
+        super.onDestroy();
+    }
 
 }

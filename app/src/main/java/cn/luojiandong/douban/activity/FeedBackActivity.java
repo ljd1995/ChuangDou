@@ -13,6 +13,7 @@ import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Unbinder;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
 import cn.luojiandong.douban.R;
@@ -38,12 +39,13 @@ public class FeedBackActivity extends Activity implements RadioGroup.OnCheckedCh
     private String mPhoneOrEmail;
     private String mFeedbackInfo;
     private String mFeedbackType = UIUtils.getString(R.string.rb_advice);
+    private Unbinder mUnbinder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed_back);
-        ButterKnife.bind(this);
+        mUnbinder = ButterKnife.bind(this);
         mRbAdvice.setChecked(true);
         initData();
     }
@@ -102,5 +104,11 @@ public class FeedBackActivity extends Activity implements RadioGroup.OnCheckedCh
         }else{
             Toast.makeText(FeedBackActivity.this, "反馈内容不能为空哦", Toast.LENGTH_LONG).show();
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        mUnbinder.unbind();
+        super.onDestroy();
     }
 }

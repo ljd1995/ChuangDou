@@ -13,6 +13,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Unbinder;
 import cn.luojiandong.douban.R;
 import cn.luojiandong.douban.utils.ShareUtils;
 
@@ -26,12 +27,13 @@ public class MoreDetailActivity extends Activity {
     private double mRating;
     private String mMoblieUrl;
     private String mTitle;
+    private Unbinder mUnbinder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_more_detail);
-        ButterKnife.bind(this);
+        mUnbinder = ButterKnife.bind(this);
         initData();
     }
 
@@ -75,5 +77,11 @@ public class MoreDetailActivity extends Activity {
     @OnClick(R.id.title_bar_share)
     public void onShare(View v){
         ShareUtils.getShare(this,mRating,mTitle,mMoblieUrl);
+    }
+
+    @Override
+    protected void onDestroy() {
+        mUnbinder.unbind();
+        super.onDestroy();
     }
 }

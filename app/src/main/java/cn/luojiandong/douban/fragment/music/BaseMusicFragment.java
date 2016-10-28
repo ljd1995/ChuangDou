@@ -89,7 +89,7 @@ public abstract class BaseMusicFragment extends BaseFragment implements SwipeRef
      */
     @NonNull
     private void getNetWorkRequest() {
-        Call<MusicBean<MusicsInfo>> call = ApiFactory.INSTANCE.getDoubanApi().getMusic(mMusicTabTitle[getMusicType()],start,count);
+        Call<MusicBean<MusicsInfo>> call = ApiFactory.INSTANCE.getDoubanApi().getMusic(mMusicTabTitle[getMusicType()], start, count);
         RetrofitTask<Object> retrofitTask = new RetrofitTask<>(UIUtils.getContext(), call);
         retrofitTask.handleMusicResponse(this);
     }

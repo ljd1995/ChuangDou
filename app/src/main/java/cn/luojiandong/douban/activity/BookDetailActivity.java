@@ -20,6 +20,7 @@ import com.ms.square.android.expandabletextview.ExpandableTextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Unbinder;
 import cn.luojiandong.douban.R;
 import cn.luojiandong.douban.bean.BookInfo;
 import cn.luojiandong.douban.http.ApiFactory;
@@ -74,12 +75,13 @@ public class BookDetailActivity extends Activity implements RetrofitTask.Respons
     private ExpandableTextView mSynopsisTextView;
     private ExpandableTextView mAuthorSynopsisTextView;
     private TextView mBookSummary;
+    private Unbinder mUnbinder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_detail);
-        ButterKnife.bind(this);
+        mUnbinder = ButterKnife.bind(this);
         mLlBookContainer.setVisibility(View.GONE);
         initView();
         initData();
@@ -188,5 +190,8 @@ public class BookDetailActivity extends Activity implements RetrofitTask.Respons
         intent.putExtra("title", mTitle);
         startActivity(intent);
     }
-
-}
+    @Override
+    protected void onDestroy() {
+        mUnbinder.unbind();
+        super.onDestroy();
+    }}
